@@ -105,6 +105,7 @@ def main():
             
     except KeyboardInterrupt:
         print("\nMeasurement interrupted")
+        
     finally:
         audio.terminate()
         
