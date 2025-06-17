@@ -111,16 +111,15 @@ def main(stdscr_ref):
     print_at(BORDER_X + int(DIAL_RADIUS_X), BORDER_Y + int(DIAL_RADIUS_Y), '+')
     print_at(BORDER_X + int(DIAL_RADIUS_X), BORDER_Y - 1, 'x')
     print_at(BORDER_X + int(DIAL_RADIUS_X), BORDER_Y + DIAL_HEIGHT, '-x')
-    print_at(BORDER_X + DIAL_WIDTH, BORDER_Y + int(DIAL_RADIUS_Y), '-y')
-    print_at(BORDER_X - 1, BORDER_Y + int(DIAL_RADIUS_Y), 'y')
+    print_at(BORDER_X + DIAL_WIDTH, BORDER_Y + int(DIAL_RADIUS_Y), 'y')
+    print_at(BORDER_X - 1, BORDER_Y + int(DIAL_RADIUS_Y), '-y')
 
-    #audio = pyaudio.PyAudio()
+    audio = pyaudio.PyAudio()
 
     try:
         while True:
-            #phi, theta = record_and_process(audio)
-            phi = -90
-            theta = 20
+            phi, theta = record_and_process(audio)
+
             if theta <20:
                 theta_l = 20/120
             elif theta > 120:
@@ -158,7 +157,7 @@ def main(stdscr_ref):
         pass
     finally:
         curses.endwin()
-        #audio.terminate()
+        audio.terminate()
 
 
 if __name__ == "__main__":
