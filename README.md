@@ -229,3 +229,27 @@ This folder conains the python files used in the research paper referenced to at
 * decibel_distance.py
 * frequency_decibel.py
 * phi_theta_angle.py 
+
+#### decibel_offset.py
+Calculates the offset of the fullscale decibel values to calculate the real decibel values.
+
+#### decibel_distance.py
+Uses the calculated offset to compare a reference decibel value with the calculated decibels with the sound source on different distances from the microphone.
+
+#### frequency_decibel.py
+Uses the calculated offset to compare a reference decibel value with the calculated on different frequencies.
+
+#### phi_theta_angle.py
+Calculatees the phi and theta angles and compares it with the reference angles. gives a dataframe that will give 0 if the angle is the same as the reference for both angles.
+
+### Code/Exp/Phase2
+This where experiment scripts made but they where not used in this research due to time constraints. These where made at the same time as the phase1 files but haven't changed so it may need some updates. it conains:
+* length_sample.py
+* max_length_v_split_length.py
+
+#### length_sample.py
+Compares the accuracy of the localization with different length of the sample
+
+#### max_length_v_split_length.py
+script to find out if the angles will be more accurate with a full max length or the max length split "N" times.
+
