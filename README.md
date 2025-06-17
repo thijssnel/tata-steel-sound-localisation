@@ -185,9 +185,9 @@ sudo reboot
 ```
 After the reboot a microphone pictogram should be seen in the main page of the raspberry pi that is called i2smaster when connecting the microphones like in the paper referenced in the beginning of this read me file.
 
-# 4. installing the compass
+### 4. installing and kalibrating the compass
 Make sure you're in the root of the python envirnoment
-Connect the compass pins with the following gpio pins of the rapsberry pi 5
+Connect the compass pins with the following gpio pins of the rapsberry pi 5 
 Vcc ---> 3.3V
 GND ---> Ground
 SCL ---> GPIO 3
@@ -200,7 +200,32 @@ sudo apt install i2c-tools
 pip install smbus2 smbus
 python stereo-env/code/setup.py install
 ```
+For the calibration run the "calibration-get-sample.py" file in the command line and fill in the magnetic declination which is now 2.4, but that can chanhge after some time. 
+It will show a circle with 36 points turn the compass so that every point has a x. After every point has been filled a calibration matrix will be added in the variables.json. the matrix will be used to convert the incomming data too the direction of north from the x axis.
 
-before 
+## Explaining python scripts
+### Code
+In the code file the following python scripts can be seen that not yet have been used.
+* Search_available_devices.py
+* decibel_controller.py
+* get_orientation.py
+* read_audio_input.py
 
+#### Search_available_devices.py
+Searches for available audio devices for py audio. The device index of the device called i2smaster will be saved in variables.json and used in the other programs that stream audio.
 
+#### decibel_controller.py
+Streams audio, if audio exceeds a threshold decibel it will record "max_sample_sec" seconds long and will save it in the data folder
+
+#### get_orientation.py 
+Will continuesly calculate the direction every "n" seconds and fill it in the variable.json. file.
+
+#### read_audio_input.py
+Will search for new audio files in the data folder. If a new file is found calculates the phi and theta and will add the information of the sound to a csv.
+
+### Code/Exp/Phase1
+This folder conains the python files used in the research paper referenced to at the beinning. it conains:
+* decibel_offset.py
+* decibel_distance.py
+* frequency_decibel.py
+* phi_theta_angle.py 
