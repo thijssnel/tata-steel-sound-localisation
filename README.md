@@ -96,7 +96,7 @@ sudo cp arch/arm64/boot/Image.gz /boot/firmware/kernel 2712.img
 sudo reboot
 
 # Pull the overlay and change it
-git clone https://github.com/AkiyukiOkayasu/RaspberryPi I2S Master
+git clone https://github.com/AkiyukiOkayasu/RaspberryPi_I2S_Master
 cd RaspberryPi_I2S_Master
 
 # Read the .dts file and change the whole file to the folowing
@@ -166,7 +166,7 @@ nano i2smaster.dts
 -----
 
 # Save the .dts file, make the .dtbo file and copy it to the overlays
-dtc -@ -H epapr -O dtb -o i2smaster.dtbo -Wno-unit address vs reg i2smaster.dts
+dtc -@ -H epapr -O dtb -o i2smaster.dtbo -Wno-unit_address_vs_reg i2smaster.dts
 sudo cp i2smaster.dtbo /boot/overlays
 
 # Activate the overlay and change the format part to
