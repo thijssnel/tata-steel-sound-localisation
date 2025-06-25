@@ -70,6 +70,17 @@ make bcm2712 defconfig
 # Change the rp1.dtsi file on line 651 to 661 
 sudo nano ˜/linux/arch/arm/boot/dts/broadcom/rp1.dtsi
 
+------
+rp1_i2s0_18_21: rp1_i2s0_18_21 {
+	function = "i2s0";
+	pins = "gpio18", "gpio19", "gpio20", "gpio21";
+	bias-disable;
+};
+rp1_i2s1_18_21: rp1_i2s1_18_21 {
+	function = "i2s1";
+	pins = "gpio18", "gpio19", "gpio20", "gpio21";
+	bias-disable;
+};
 -----
  
 rp1_i2s0_18_21: rp1_i2s0_18_21 {
