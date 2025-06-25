@@ -137,7 +137,7 @@ nano i2smaster.dts
                     sound-dai = <&i2s>;
 
                 // TDM slot configuration for stereo
-                    dai-tdm-slot-num = <2>;
+                    dai-tdm-slot-num = <4>;
                     dai-tdm-slot-width = <32>;
                 };
 
